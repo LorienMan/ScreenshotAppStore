@@ -1,7 +1,7 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 
 if [ "$4" == "" ]; then
-    echo "Usage: sh snapshot_appstore.sh [DEVICE UUID] [TEXT TO ENTER IN APPSTORE] [PAGES TO SCROLL] [DELAY (5s 10m 1h)]"
+    echo "Usage: sh snapshot_appstore.sh [DEVICE UUID] [TEXT TO ENTER IN APPSTORE] [PAGES TO SCROLL] [DELAY SECONDS]"
     exit
 fi
 
