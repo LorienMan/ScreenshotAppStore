@@ -1,3 +1,3 @@
 let requestString = "Jet Radar"
-let pagesNumber = 4
+let pagesNumber = 1
 

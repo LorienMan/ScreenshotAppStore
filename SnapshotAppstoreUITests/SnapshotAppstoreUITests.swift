@@ -58,17 +58,17 @@ class SnapshotAppstoreUITests: XCTestCase {
     }
 
     private func takeScreenshotsOfVerticalCellContainer(_ containerElement: XCUIElement, screenshotBaseName: String, containerInsets: UIEdgeInsets = UIEdgeInsets.zero, maxPages: Int = Int.max) {
-        var pageIdx = 1
-        snapshot("\(screenshotBaseName)_Page_\(pageIdx)")
-
-        repeat {
-            let fromCoordinate = containerElement.coordinate(withNormalizedOffset: CGVector(dx: 0, dy: 1)).withOffset(CGVector(dx: 1 + containerInsets.left, dy: -20 + containerInsets.bottom))
-            let toCoordinate = containerElement.coordinate(withNormalizedOffset: CGVector(dx: 0, dy: 0)).withOffset(CGVector(dx: 1 + containerInsets.left, dy: -20 + containerInsets.top))
-            fromCoordinate.press(forDuration: 0.01, thenDragTo: toCoordinate)
+        var pageIdx = 0
+        while pageIdx < maxPages {
+            if pageIdx != 0 {
+                let fromCoordinate = containerElement.coordinate(withNormalizedOffset: CGVector(dx: 0, dy: 1)).withOffset(CGVector(dx: 1 + containerInsets.left, dy: -20 + containerInsets.bottom))
+                let toCoordinate = containerElement.coordinate(withNormalizedOffset: CGVector(dx: 0, dy: 0)).withOffset(CGVector(dx: 1 + containerInsets.left, dy: -20 + containerInsets.top))
+                fromCoordinate.press(forDuration: 0.01, thenDragTo: toCoordinate)
+            }
 
             pageIdx += 1
             snapshot("\(screenshotBaseName)_Page_\(pageIdx)")
-        } while pageIdx < maxPages
+        }
     }
 
 }
